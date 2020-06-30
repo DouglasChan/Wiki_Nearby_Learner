@@ -7,10 +7,20 @@ def find_landmarks(coordinates_list):
         for j in range(len(coordinates_list[i])):
             landmarks_list.append(wikipedia.geosearch(coordinates_list[i][0],coordinates_list[i][1]))
               
-    landmarks_list = set([item for sublist in landmarks_list for item in sublist])
+    landmarks_aggregate_list = list(set([item for sublist in landmarks_list for item in sublist])) 
     
+    '''
+    In its current form, landmarks_list should be a list of lists...
     
-    print(landmarks_list)
+    * Could consider adding a timestamp as the first object?
+    '''
+    
+    for i in range(len(landmarks_aggregate_list)):
+        print(wikipedia.page(landmarks_aggregate_list[i]).content)
+        print(type(wikipedia.page(landmarks_aggregate_list[i]).content))
+        print(len(wikipedia.page(landmarks_aggregate_list[i]).content))
+    
+    #print(landmarks_list)
     
     
         #print(wikipedia.geosearch(coordinates_list[i][0],coordinates_list[i][1]))

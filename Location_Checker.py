@@ -7,7 +7,7 @@ def display_ip():
     
     counter = 0
     
-    while counter < 25:
+    while counter < 20:
 
         ip_request = requests.get('https://get.geojs.io/v1/ip.json')
         my_ip = ip_request.json()['ip']
