@@ -15,10 +15,17 @@ def find_landmarks(coordinates_list):
     * Could consider adding a timestamp as the first object?
     '''
     
+    text_list = []
+    
     for i in range(len(landmarks_aggregate_list)):
         print(wikipedia.page(landmarks_aggregate_list[i]).content)
         print(type(wikipedia.page(landmarks_aggregate_list[i]).content))
         print(len(wikipedia.page(landmarks_aggregate_list[i]).content))
+        
+        text_list.append(wikipedia.page(landmarks_aggregate_list[i]).content)
+        
+    print(text_list)
+    return text_list
     
     #print(landmarks_list)
     
