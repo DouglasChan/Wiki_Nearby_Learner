@@ -25,9 +25,10 @@ def find_landmarks(coordinates_list):
         text_list.append(wikipedia.page(landmarks_aggregate_list[i]).content)
         
     print(text_list)
+    
     return text_list
     
-    #print(landmarks_list)
+
     
     
         #print(wikipedia.geosearch(coordinates_list[i][0],coordinates_list[i][1]))
