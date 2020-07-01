@@ -41,13 +41,14 @@ def frequency_counter(ne_master):
     print(flat_ne_master_single_type)
     print(type(flat_ne_master_single_type))
     
-    time.sleep(1000)
+    #time.sleep(1000)
     
-    frequency_list = [len(list(group)) for key, group in groupby(flat_ne_master)]
-    key_list = [key for key,group in groupby(flat_ne_master)]
+    frequency_list = [len(list(group)) for key, group in groupby(flat_ne_master_single_type)]
+    key_list = [key for key,group in groupby(flat_ne_master_single_type)]
     
     combined_list = [(frequency_list[i], key_list[i]) for i in range(0, len(frequency_list))]
     
+    print(frequency_list)
     print(combined_list)
     #for i in range(len(frequency_list)):
     #    combined_list =
