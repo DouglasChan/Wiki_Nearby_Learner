@@ -32,23 +32,22 @@ def processing_pages(text_list):
                     ne_string = " ".join([token for token, pos in subtree.leaves()]) #String, name of the named entity?
                     
                     ne_in_sent.append((ne_string, ne_label)) #List of named entities, and the NE type?
-                    
-                    #print(ne_in_sent)
-                    time.sleep(2)
-                    
-                    #print(ne_in_sent)
-                    #print(len(namedEnt))
-                    
-                    if subtree == namedEnt[len(namedEnt)-1]:
-                        print('yup.')
-                        time.sleep(2)
+                                        
+                    #if subtree == namedEnt[len(namedEnt)-1]:
+                    #    print('yup.')
+                    #    time.sleep(2)
             
-            print(ne_single_page)
+            #print(ne_in_sent)
             ne_single_page.append(ne_in_sent)
             #print(ne_master)
             
         ne_master.append(ne_single_page)
-    print(ne_master)
+    #print(ne_master)
+    #print(type(ne_master))
+    #print(len(ne_master))
+    
+    for i in range(len(ne_master)):
+        print(len(ne_master[i]))
             
             #Phrase tokenize?
         
@@ -63,6 +62,8 @@ def processing_pages(text_list):
         #tokens = nltk.word_tokenize(text_list[i])
         
         #print("Parts Of Speech: ", nltk.pos_tag(tokens))
+        
+    return ne_master
         
 #if __name__ == '__main__':
     
