@@ -42,14 +42,19 @@ def display_ip():
     
     filenames = find_csv_filenames(path)
     
+    coordinates_master_list = []
+    
     for name in filenames:
         
         coordinates_list = displaying_all_coordinates(name)
+        coordinates_master_list.append(coordinates_list)
     
     #Multiple coordinates here...
     
-    print(coordinates_list)
-    return coordinates_list
+    coordinates_master_list = [item for sublist in coordinates_master_list for item in sublist]
+    
+    print(coordinates_master_list)
+    return coordinates_master_list
         
     
     #Reading in CSV data **
