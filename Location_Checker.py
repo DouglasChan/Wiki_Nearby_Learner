@@ -3,7 +3,6 @@ import time
 import csv
 from os import getcwd, listdir
 
-
 def find_csv_filenames(path_to_dir, suffix = '.csv'):
     filenames = listdir(path_to_dir)
     return [filename for filename in filenames if filename.endswith(suffix)]
@@ -17,9 +16,11 @@ def displaying_all_coordinates(csv_file):
         tuple_list = []
     
         filereader = csv.reader(csvfile)
+        
         counter = 0
         
-        for row in filereader:
+        for row in filereader: #Divides the data into 3 separate lists (overall probably less efficient)
+        
             if counter % 3 == 0:
                 latitude_list.append(row)
             elif counter % 3 == 1:
@@ -29,11 +30,9 @@ def displaying_all_coordinates(csv_file):
         
             counter += 1
         
-        for i in range(len(latitude_list)):
+        for i in range(len(latitude_list)): #Adds 
             tuple_list.append((latitude_list[i],longitude_list[i],time_list[i]))
-        
-        print(tuple_list)
-        
+               
         return tuple_list
         
 def display_ip():
@@ -49,47 +48,14 @@ def display_ip():
         coordinates_list = displaying_all_coordinates(name)
         coordinates_master_list.append(coordinates_list)
     
-    #Multiple coordinates here...
-    
+    #Making list of lists into singular flat list.
+    #Idea behind this is that writing to csv for every 100 measurements is fairly arbitrary. 
     coordinates_master_list = [item for sublist in coordinates_master_list for item in sublist]
     
-    print(coordinates_master_list)
     return coordinates_master_list
-        
-    
-    #Reading in CSV data **
-    #Take given csv file
-    #Ideally later would want all csv files combined
-    
-    #Output list of latitudes and longiudes *
-    
-    
-    #counter = 0
-    
-    
-    
-    
-    #while counter < 1000000:
-
-        # Code below isn't great -- since takes the geolocation of the cell tower and not anything actually useful. 
-
-        #ip_request = requests.get('https://get.geojs.io/v1/ip.json')
-        #my_ip = ip_request.json()['ip']
-        #geo_request = requests.get('https://get.geojs.io/v1/ip/geo/' +my_ip + '.json')
-        #geo_data = geo_request.json()
-        #print({'latitude': geo_data['latitude'], 'longitude': geo_data['longitude']})
-        #coordinates_list.append(tuple((geo_data['latitude'],geo_data['longitude'])))
-        
-    #    counter += 1
-    #    print(counter)
-    #    time.sleep(15)
-    
-    #print(coordinates_list)
-    #return coordinates_list
 
 if __name__ == '__main__':
     display_ip()
-
 
 #Ref
 #1. https://note.nkmk.me/en/python-os-getcwd-chdir/#:~:text=Get%20the%20current%20working%20direcory%3A%20os.,-getcwd()&text=getcwd()-,os.,the%20result%20with%20print()%20.&text=getcwd%20stands%20for%20%22get%20current%20working%20directory%22.
