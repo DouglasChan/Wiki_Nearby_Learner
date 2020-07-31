@@ -3,8 +3,37 @@ from itertools import groupby
 
 def frequency_counter(ne_master):
     for i in range(len(ne_master)):
-        frequency_list = [len(list(group)) for key, group in groupby(ne_master[i])]
-        key_list = [key for key,group in groupby(ne_master[i])]
+        flat_master = [item for sublist in ne_master[i] for item in sublist]
+    
+        #time.sleep(1000)
+    
+        #print(ne_master[i])
+        
+        flat_master.sort()
+        
+        print(flat_master)
+        print(len(flat_master))
+        
+        frequency_list = [len(list(group)) for key, group in groupby(flat_master)]
+        print(frequency_list)
+        
+        print([len(list(group)) for key, group in groupby(flat_master)])
+        time.sleep(1000)
+        
+        #frequency_list = [len(list(group)) for key, group in groupby(ne_master[i][0])]  #Before was ne_master[i]
+        #print(frequency_list)
+        #print(type(frequency_list))
+        #time.sleep(1000)
+        
+        #key_list = [key for key,group in groupby(ne_master[i])]
+        
+        #print([key for key, group in groupby(ne_master[i][0])])
+        
+        #time.sleep(5)
+        #print(key_list)
+        #print(type(key_list))
+        #time.sleep(1000)
+        
         #print(frequency_list)
         #print(key_list)
         
@@ -58,3 +87,6 @@ def frequency_counter(ne_master):
     #    print(key_list)
     #    print(len(frequency_list))
     #    print(len(key_list))
+    
+    
+    [[('Chinese Martyrs Catholic Church', 'ORGANIZATION'), ('Catholic', 'ORGANIZATION'), ('Greater Toronto Area', 'ORGANIZATION'), ('Chinese', 'GSP'), ('Catholics', 'ORGANIZATION')], [('Scarborough', 'GPE'), ('Markham', 'GPE'), ('Catholic', 'ORGANIZATION'), ('Chinese', 'GPE'), ('GTA', 'ORGANIZATION')], [('Chinese Martyrs', 'ORGANIZATION'), ('Chinese', 'GPE'), ('China', 'GPE')], [('See', 'PERSON')], [('Michael', 'PERSON'), ('Cathedral', 'ORGANIZATION'), ('Toronto St', 'ORGANIZATION')], [('Paul', 'PERSON'), ('Basilica St', 'ORGANIZATION')], [('Patrick', 'PERSON'), ('Church', 'GPE'), ('Toronto', 'ORGANIZATION'), ('Lourdes Roman Catholic Church', 'PERSON'), ('Toronto', 'ORGANIZATION'), ('Chinese', 'GPE'), ('Catholic', 'ORGANIZATION'), ('Greater Toronto Area St', 'ORGANIZATION')], [('Tsao Catholic Church', 'PERSON'), ('Mount Carmel Chinese Catholic Church Saviour', 'PERSON'), ('Catholic Church', 'ORGANIZATION'), ('Chinese', 'GPE'), ('Martyrs Catholic Church', 'PERSON'), ('Wikimedia Commons', 'ORGANIZATION'), ('Chinese Martyrs Catholic', 'ORGANIZATION')]]
