@@ -13,7 +13,6 @@ def processing_pages(text_list):
         
         tokenized = custom_sent_tokenizer.tokenize(text_list[i]) #Attempt at tokenizing each sentence within Wikipedia page. Potential problems with new lines & content
         
-        
         for sentence in tokenized:
             words = nltk.word_tokenize(sentence) #Unigram tokenized words. Sometimes has problems parsing sentences with addresses. 
             
@@ -21,47 +20,23 @@ def processing_pages(text_list):
             
             namedEnt = nltk.ne_chunk(tagged) #NLTK tree object
             
-            #test_list = [word for word,pos in namedEnt.pos() if pos=='NNP']
-            
             ne_in_sent = []
             for subtree in namedEnt: #Tuple? or tree type if there's a named entity in it?
-            
                 if type(subtree) == Tree: # If subtree is a noun chunk, i.e. NE != "O"
                     ne_label = subtree.label() #String type, it's the prefix before the named entity
                     
                     ne_string = " ".join([token for token, pos in subtree.leaves()]) #String, name of the named entity?
                     
                     ne_in_sent.append((ne_string, ne_label)) #List of named entities, and the NE type?
-                                        
-                    #if subtree == namedEnt[len(namedEnt)-1]:
-                    #    print('yup.')
-                    #    time.sleep(2)
-            
-            #print(ne_in_sent)
+                    
             ne_single_page.append(ne_in_sent)
-            #print(ne_master)
             
         ne_master.append(ne_single_page)
-    #print(ne_master)
-    #print(type(ne_master))
-    #print(len(ne_master))
-    
-    for i in range(len(ne_master)):
+
+    print(ne_master)
+
+    for i in range(len(ne_master)): #Prints out length of master named entity recognition list for each page
         print(len(ne_master[i]))
-            
-            #Phrase tokenize?
-        
-            #time.sleep(0.1)
-            #print(item)
-            #print(len(tokenized))
-        
-        #print(tokenized)
-        #for j in tokenized:
-        #    print(j)
-    
-        #tokens = nltk.word_tokenize(text_list[i])
-        
-        #print("Parts Of Speech: ", nltk.pos_tag(tokens))
         
     return ne_master
         
