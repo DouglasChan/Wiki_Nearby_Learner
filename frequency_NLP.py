@@ -1,45 +1,40 @@
 import time
 from itertools import groupby
+import pandas as pd
 
 def frequency_counter(ne_master):
+
     for i in range(len(ne_master)):
         flat_master = [item for sublist in ne_master[i] for item in sublist]
-    
-        #time.sleep(1000)
-    
-        #print(ne_master[i])
         
         flat_master.sort()
         
         print(flat_master)
         print(len(flat_master))
         
-        frequency_list = [len(list(group)) for key, group in groupby(flat_master)]
+        frequency_list = [(key, len(list(group))) for key, group in groupby(flat_master)]
         print(frequency_list)
+        print(len(frequency_list))
         
-        print([len(list(group)) for key, group in groupby(flat_master)])
-        time.sleep(1000)
-        
-        #frequency_list = [len(list(group)) for key, group in groupby(ne_master[i][0])]  #Before was ne_master[i]
-        #print(frequency_list)
-        #print(type(frequency_list))
         #time.sleep(1000)
+
+        #key_list = [key for key,group in groupby(flat_master)]
         
-        #key_list = [key for key,group in groupby(ne_master[i])]
+        df = pd.DataFrame(frequency_list,columns=['tuple key','frequency'])
         
-        #print([key for key, group in groupby(ne_master[i][0])])
+        df = df.sort_values(by=['frequency'], ascending=False)
         
-        #time.sleep(5)
-        #print(key_list)
-        #print(type(key_list))
-        #time.sleep(1000)
+        pd.set_option('display.max_rows', 500)
         
-        #print(frequency_list)
+        print(df)
         #print(key_list)
         
     #Grouped together
-    
+    '''
     part_flat_ne_master = [item for sublist in ne_master for item in sublist]
+    
+    print(part_flat_ne_master)
+    #time.sleep(1000)
     
     flat_ne_master = []
     
@@ -76,9 +71,10 @@ def frequency_counter(ne_master):
     key_list = [key for key,group in groupby(flat_ne_master_single_type)]
     
     combined_list = [(frequency_list[i], key_list[i]) for i in range(0, len(frequency_list))]
+    '''
     
-    print(frequency_list)
-    print(combined_list)
+    #print(frequency_list)
+    #print(combined_list)
     #for i in range(len(frequency_list)):
     #    combined_list =
     #    for 
