@@ -2,6 +2,8 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 import datetime
 import time
+import os
+import re
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth()
@@ -13,10 +15,6 @@ file_list = drive.ListFile({'q': "mimeType='application/vnd.google-apps.folder' 
 for file1 in file_list:
     if file1['title'] == 'DriveSyncFiles':
         drive_sync_list = drive.ListFile({'q': "'1KVO1LSuUQpU45FlWDMuq6f-PHPBELAYV' in parents and trashed=false"}).GetList()
-        #print(drive_sync_list)
-        #print(type(drive_sync_list))
-        #print(len(drive_sync_list))
-        #time.sleep(1000)
         
         for sync_file in drive_sync_list:
             print('title: %s, id: %s' % (sync_file['title'], sync_file['id']))
@@ -25,18 +23,38 @@ for file1 in file_list:
                 print(sync_file['title'])
                 print(sync_file['id'])
 
-                test_list = drive.ListFile({'q': "'{0}' in parents and trashed = false".format(sync_file['id'])}).GetList()
-                print(test_list)
+                day_list = drive.ListFile({'q': "'{0}' in parents and trashed = false".format(sync_file['id'])}).GetList()
                 
-                for i in range(len(test_list)):
-                    print(test_list[i])
+                for file in day_list:
+                    print('title: %s, id: %s' % (file['title'],file['id']))
                     
-                print(len(test_list))
+                    time_with_colons = file['title']
+                    time_list = time_with_colons.split(':')
+                    #print(time_list)
+                    time_without_colons = '_'.join(time_list)
+                    print(time_without_colons)
+                    
+                    #fname = os.path.join
+                    
+                    file.GetContentFile(time_without_colons, mimetype='text/csv')
+                    
+                    #file.GetContentFile(filename = file['title'], mimetype='text/csv')
+                    
+                    # ^ Fairly big : 
+                    # Not what the file is named on drive
+                    # But rather what saving as?
+                    
+                    # Try converting to string?
+                
+                
+                #sync_file.GetContentFile(sync_file['title'], mimetype='text/csv')
                 
                 
                 break
             else:
                 print('This does not match.')
+                
+#file.GetContentFile(filename='locations_2020-08-21 09:09.csv')
                 
 time.sleep(1000)
             
