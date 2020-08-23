@@ -4,6 +4,8 @@ import pandas as pd
 
 def frequency_counter(ne_master):
 
+    frequency_dfs = []
+
     for i in range(len(ne_master)):
         flat_master = [item for sublist in ne_master[i] for item in sublist]
         
@@ -26,8 +28,58 @@ def frequency_counter(ne_master):
         
         pd.set_option('display.max_rows', 500)
         
+        '''
+        print('@'*50)
         print(df)
+        print(type(df))
+        time.sleep(1000)
+        '''
+        
+        frequency_dfs.append(df)
         #print(key_list)
+        
+    base_df = frequency_dfs[0]
+     
+    concatenated_df = pd.concat([frequency_dfs[0],frequency_dfs[1],frequency_dfs[2]]) ###
+    
+    
+    #print(concatenated_df)
+    print(len(concatenated_df['tuple key']))
+    
+    print(frequency_dfs)
+    print(len(frequency_dfs[0]['tuple key']))
+    print(len(frequency_dfs[1]['tuple key']))
+    print(len(frequency_dfs[2]['tuple key']))
+    
+    print('@'*50)
+    #time.sleep(1000)
+    
+    bla = concatenated_df.groupby(['tuple key'], as_index=False)['frequency'].sum()
+    print(bla)
+    print(type(bla))
+    print(len(bla['tuple key']))
+    
+    #print(concatenated_df)
+    #print(type(concatenated_df))
+    #print(len(concatenated_df['tuple key']))
+    
+    #print(concat_grouped_df)
+    #print(type(concat_grouped_df))
+    
+    
+    time.sleep(1000)
+    
+    
+    
+    concat_grouped_df = concat_grouped_df.sort_values(by=['frequency'],ascending=False)
+    print(concat_grouped_df)
+    print(len(concat_grouped_df['tuple key']))
+
+    
+    #for i in range(len(frequency_dfs)):
+    #    print(frequency_dfs[i])
+    
+    #print(frequency_dfs)
         
     #Grouped together
     '''
