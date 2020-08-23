@@ -5,16 +5,19 @@ from nltk.tree import Tree
 
 def processing_pages(text_list):
     ne_master = []
+    word_number_list = []
 
     for i in range(len(text_list)): #text_list contains all the text articles of identified landmarks.
         ne_single_page = []
+        
+        word_counter = 0
         
         custom_sent_tokenizer = PunktSentenceTokenizer() #Trained vs not? Leaving as default
         
         tokenized = custom_sent_tokenizer.tokenize(text_list[i]) #Attempt at tokenizing each sentence within Wikipedia page. Potential problems with new lines & content
         
         for sentence in tokenized:
-            words = nltk.word_tokenize(sentence) #Unigram tokenized words. Sometimes has problems parsing sentences with addresses. 
+            words = nltk.word_tokenize(sentence) #Unigram tokenized words. Sometimes has problems parsing sentences with addresses.
             
             tagged = nltk.pos_tag(words) #Pretty much the same list as earlier, but with each word as a tuple now with POS as second part of tuple.
             
@@ -31,14 +34,23 @@ def processing_pages(text_list):
                     
             ne_single_page.append(ne_in_sent)
             
+            word_counter += len(words)
+            
         ne_master.append(ne_single_page)
+        word_number_list.append(word_counter)
+        
+    print(word_number_list)
+        
+    time.sleep(1000)
 
+    print('@'*50)
     print(ne_master)
     print(len(ne_master))
+    print('@'*50)
+    #print(len(ne_master))
 
-    for i in range(len(ne_master)): #Prints out length of master named entity recognition list for each page
-        print(len(ne_master[i]))
-        print('^ Whoop')
+    #for i in range(len(ne_master)): #Prints out length of master named entity recognition list for each page
+    #    print(len(ne_master[i]))
         
     return ne_master
         

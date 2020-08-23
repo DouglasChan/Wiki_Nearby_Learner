@@ -48,22 +48,19 @@ for file1 in file_list:
                 
                 
                 #sync_file.GetContentFile(sync_file['title'], mimetype='text/csv')
-                
-                
+                              
                 break
             else:
                 print('This does not match.')
                 
 #file.GetContentFile(filename='locations_2020-08-21 09:09.csv')
-                
-time.sleep(1000)
             
 print(datetime.datetime.now().date())
 
 #V1.5
-test_list = drive.ListFile({'q': " '1KVO1LSuUQpU45FlWDMuq6f-PHPBELAYV' in parents and trashed = false"}).GetList()
+#test_list = drive.ListFile({'q': " '1KVO1LSuUQpU45FlWDMuq6f-PHPBELAYV' in parents and trashed = false"}).GetList()
 #test_list = drive.ListFile({'q': "'{0}' in '1KVO1LSuUQpU45FlWDMuq6f-PHPBELAYV' in parents and trashed = false".format(sync_file['id'])}).GetList()
-print(test_list)
+#print(test_list)
 #test = "'1KVO1LSuUQpU45FlWDMuq6f-PHPBELAYV' in parents and trashed=false"
 #print(test)
 #print(type(test))

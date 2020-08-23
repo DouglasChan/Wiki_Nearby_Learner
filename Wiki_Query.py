@@ -9,17 +9,17 @@ def find_landmarks(coordinates_list):
 
     landmarks_aggregate_list = list(set([item for sublist in landmarks_list for item in sublist])) #Using set will find only unique values of landmarks
     
-    '''
-    In its current form, landmarks_list should be a list of lists...
-    
-    '''
+    #Here is where I'd put exclusion list?
     
     text_list = []
+    number_of_articles = 0
     
     for i in range(len(landmarks_aggregate_list)):
         print(wikipedia.page(landmarks_aggregate_list[i]).content)
-        print(len(wikipedia.page(landmarks_aggregate_list[i]).content))
+        print(len(wikipedia.page(landmarks_aggregate_list[i]).content)) #Length of characters of given wikipedia page...
         
         text_list.append(wikipedia.page(landmarks_aggregate_list[i]).content)
     
-    return text_list
+    number_of_articles = len(text_list)
+    
+    return text_list, number_of_articles
