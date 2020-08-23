@@ -46,6 +46,7 @@ def display_ip():
     for name in filenames:
         
         coordinates_list = displaying_all_coordinates(name)
+        
         coordinates_master_list.append(coordinates_list)
     
     #Making list of lists into singular flat list.
