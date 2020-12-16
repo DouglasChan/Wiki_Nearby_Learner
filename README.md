@@ -1,13 +1,13 @@
 # Wiki_Nearby_Learner (Under Progress)
 
-Getting Started & Running the Program
+# Getting Started & Running the Program
 
 1. The free app Termux should be installed on the Android device that will be used when travelling. This allows Python files to be run from the Android terminal emulator 
 
 2. Autosync for Google Drive (DriveSync) should be installed on the Android device if one wishes to make the data transfer automatic. This program takes the saved .csv files saved on the Android device and automatically uploads them to a specified folder within a User's Google Drive. 
 
 
-Contents
+# Contents
 
 speedometer.py (Adapted from *link) : From Termux on an Android phone, this script uses the phone's internal GPS and displays latitude and longitude coordinates, as well as the exact time that the coordinates were fetched. Periodically, .csv files of gps coordinates are saved in a predetermined folder. 
 
@@ -26,7 +26,7 @@ frequency_NLP.py : From the proper nouns / phrases that were collected, groups t
 Wiki_Nearby_Learner.ipynb : Jupyter notebook where Folium is used to visualize radii of trip
 
 
-Visualizations
+# Visualizations
 
 ![](images/1_Trip_Radii_Milliken_District_Park_North_To_Markham.png)
 
