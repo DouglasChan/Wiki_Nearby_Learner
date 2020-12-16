@@ -24,3 +24,6 @@ NLP_Processing_Landmarks.py : Uses NLP to parse all articles from Wikipedia that
 frequency_NLP.py : From the proper nouns / phrases that were collected, groups these by frequency showing the most frequently used proper nouns (ex : "Toronto") as being displayed first. 
 
 Wiki_Nearby_Learner.ipynb : Jupyter notebook where Folium is used to visualize radii of trip
+
+![](images/network_with_wordclouds_copy.png)
+
