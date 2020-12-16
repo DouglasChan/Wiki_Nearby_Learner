@@ -25,5 +25,5 @@ frequency_NLP.py : From the proper nouns / phrases that were collected, groups t
 
 Wiki_Nearby_Learner.ipynb : Jupyter notebook where Folium is used to visualize radii of trip
 
-![](images/network_with_wordclouds_copy.png)
+![](images/1_Trip_Radii_Milliken_District_Park_North_To_Markham.png)
 
