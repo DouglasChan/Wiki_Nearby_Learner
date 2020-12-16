@@ -1,5 +1,7 @@
 # Wiki_Nearby_Learner (Under Progress)
 
+This Project uses API functionality that is similar to the "Wikipedia Nearby" site : https://en.wikipedia.org/wiki/Special:Nearby
+
 # Getting Started & Running the Program
 
 1. The free app Termux should be installed on the Android device that will be used when travelling. This allows Python files to be run from the Android terminal emulator 
