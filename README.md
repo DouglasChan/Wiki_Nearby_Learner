@@ -40,6 +40,6 @@ Fig 2. The individual text data from Wikipedia articles.
 
 Fig 3. Most prevalent proper nouns from a single scraped article.
 
-![](images/4_Most_Prevalent_Proper_Nouns_Across_Trip.png)
+![](images/5_Combined.png)
 
 Fig 4. Most prevalent proper nouns across an entire trip.
