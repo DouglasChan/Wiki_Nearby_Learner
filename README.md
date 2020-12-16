@@ -11,7 +11,7 @@ This Project uses API functionality that is similar to the "Wikipedia Nearby" si
 
 # Contents
 
-speedometer.py (Adapted from *link) : From Termux on an Android phone, this script uses the phone's internal GPS and displays latitude and longitude coordinates, as well as the exact time that the coordinates were fetched. Periodically, .csv files of gps coordinates are saved in a predetermined folder. 
+speedometer.py (Adapted from https://medium.com/@ishivam93/tracking-vehicle-speed-using-android-phone-c9a9bd5d982) : From Termux on an Android phone, this script uses the phone's internal GPS and displays latitude and longitude coordinates, as well as the exact time that the coordinates were fetched. Periodically, .csv files of gps coordinates are saved in a predetermined folder. 
 
 quickstart.py : This file checks if the data is found in the specified Google Drive folder -- if so, it downloads the file to a folder on the local machine to be processed. 
 
